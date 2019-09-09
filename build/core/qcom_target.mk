@@ -16,9 +16,11 @@ $(call project-set-path,qcom-$(2),$(strip $(path)))
 endef
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-$(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio/$(QCOM_HARDWARE_VARIANT))
-$(call set-device-specific-path,DISPLAY,display,hardware/qcom/display/$(QCOM_HARDWARE_VARIANT))
-$(call set-device-specific-path,MEDIA,media,hardware/qcom/media/$(QCOM_HARDWARE_VARIANT))
+
+$(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio-caf/$(QCOM_HARDWARE_VARIANT))
+$(call set-device-specific-path,DISPLAY,display,hardware/qcom/display-caf/$(QCOM_HARDWARE_VARIANT))
+$(call set-device-specific-path,MEDIA,media,hardware/qcom/media-caf/$(QCOM_HARDWARE_VARIANT))
+
 $(call set-device-specific-path,CAMERA,camera,hardware/qcom/camera)
 $(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
 $(call set-device-specific-path,SENSORS,sensors,hardware/qcom/sensors)
@@ -29,11 +31,11 @@ $(call set-device-specific-path,THERMAL,thermal,hardware/qcom/thermal)
 $(call set-device-specific-path,VR,vr,hardware/qcom/vr)
 $(call set-device-specific-path,IPACFG_MGR,ipacfg-mgr,vendor/qcom/opensource/data-ipa-cfg-mgr)
 
-$(call wlan-set-path-variant,wlan)
-$(call bt-vendor-set-path-variant,bt)
+$(call wlan-set-path-variant,wlan-caf)
+$(call bt-vendor-set-path-variant,bt-caf)
 
 PRODUCT_CFI_INCLUDE_PATHS += \
-    hardware/qcom/wlan/qcwcn/wpa_supplicant_8_lib
+    hardware/qcom/wlan-caf/qcwcn/wpa_supplicant_8_lib
 else
 
 $(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio/default)
